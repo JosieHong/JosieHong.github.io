@@ -130,6 +130,10 @@ img {
   margin-top: 4rem;
 }
 
+.mt-4 {
+  margin-top: 6rem;
+}
+
 .mx-auto {
   margin: auto;
 }
