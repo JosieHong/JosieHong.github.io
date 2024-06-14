@@ -14,15 +14,22 @@ a:hover {
 }
 
 #content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%) ;
-    text-align: left;
-    max-width: 720px;
-    padding: 32px;
-    line-height: 1.6em;
+    position: relative; /* Change to relative for responsive positioning */
+    width: 100%; /* Ensure it spans the full width of its container */
+    max-width: 720px; /* Limit maximum width for larger screens */
+    padding: 24px; /* Reduce padding for smaller screens */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin: 0 auto; /* Center align horizontally */
+    text-align: left; /* Left align text content */
+    line-height: 1.6; /* Adjust line height */
+}
+
+/* Media query for smaller screens (e.g., phones) */
+@media (max-width: 768px) {
+    #content {
+        padding: 16px; /* Further reduce padding for smaller screens */
+        max-width: 100%; /* Ensure content spans full width */
+    }
 }
 
 .avatar {
