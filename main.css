@@ -69,3 +69,20 @@ a:hover {
 footer {
     margin-top: 3em;
 }
+
+table {
+    width: 600px; /* Set a fixed width for the table */
+    border-collapse: collapse; /* Merge borders into single lines */
+    margin: 10px 0; /* Add some margin around the table */
+}
+th, td {
+    border: 1px solid #000; /* Single-line border */
+    padding: 4px; /* Add padding inside cells */
+    text-align: left; /* Align text to the left */
+}
+th {
+    background-color: #f2f2f2; /* Light grey background for header cells */
+}
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row colors */
+}
