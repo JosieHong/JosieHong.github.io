@@ -1,0 +1,41 @@
+/* Styling the language switcher button */
+.language-toggle {
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    margin-bottom: 12px;
+}
+
+.language-toggle span {
+    padding: 0 8px;
+}
+
+.language-toggle span.separator {
+    color: #888;
+}
+
+.language-toggle .active {
+    font-weight: bold;
+    color: #5365ac;
+}
+
+.language-toggle .inactive {
+    color: #666;
+    cursor: pointer;
+}
+
+/* Reference */
+ol.custom-counter {
+    list-style-type: none; /* Remove default numbering */
+    counter-reset: list-counter; /* Reset counter */
+}
+
+ol.custom-counter li {
+    counter-increment: list-counter; /* Increment counter */
+}
+
+ol.custom-counter li::before {
+    content: "[" counter(list-counter) "] "; /* Display counter with brackets */
+}

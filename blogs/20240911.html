@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Define title -->
+    <title> Interpreting Neural Networks: What Exactly Are We Analyzing? </title>
+
+    <!-- Include favicon. Use, e.g., https://favicon.io/ -->
+    <link rel="icon" type="image/png" href="../favicon.png" sizes="32x32" />
+
+    <!-- Include style sheets -->
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="../blog.css" />
+
+    <!-- Fonts from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap" rel="stylesheet" />
+
+    <!-- Load FontAwesome (for icons) -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" />
+
+    <!-- Load Academicons (for more icons) -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css"
+        integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg=="
+        crossorigin="anonymous" />
+
+    <script>
+        function showEnglish() {
+            document.getElementById("english-content").style.display = "block";
+            document.getElementById("chinese-content").style.display = "none";
+            document.getElementById("english-btn").classList.add("active");
+            document.getElementById("chinese-btn").classList.remove("active");
+        }
+
+        function showChinese() {
+            document.getElementById("english-content").style.display = "none";
+            document.getElementById("chinese-content").style.display = "block";
+            document.getElementById("english-btn").classList.remove("active");
+            document.getElementById("chinese-btn").classList.add("active");
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+      <ul class="navbar">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../publication.html">Publications</a></li>
+          <li><a href="../cv.html">CV</a></li>
+          <li><a href="../blogs.html">Blogs</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <section id="content">
+        <!-- English content -->
+        <div id="english-content">
+            <!-- Button to toggle language -->
+            <div class="language-toggle">
+                <span id="english-btn" class="active" onclick="showEnglish()">English</span>
+                <span class="separator">|</span>
+                <span id="chinese-btn" class="inactive" onclick="showChinese()">Chinese</span>
+            </div>
+
+            <h2> Interpretable Models: What Are We Talking About When We Discuss Interpretable Models? </h2> 
+            
+            <p> 
+                As someone involved in deep learning research, I wasn't initially very enthusiastic about interpreting models. 
+                Deep learning models are often very "deep," and even if they achieve the desired goals, 
+                such as classifying images or predicting certain properties, they may not operate according to the logic we expect. 
+                Therefore, I always felt that it is quite arrogant for humans to try to understand deep learning models in our own way. 
+            </p> 
+            
+            <h3> Interpret Machine Learning Models from a Human Perspective, Why and Why Not? </h3> 
+            
+            <p> 
+                However, it is quite common to understand new things based on one's own experiences. 
+                For instance, when learning a new language, people often tend to establish correspondences between the new language and their native language through translation. 
+            </p> 
+            
+            <p> 
+                But is the common choice always correct? 
+                I often think of the advice in the book "Words Power Made Easy": learn new words as a child learns to speak. 
+                In this way of learning, our understanding of each word is based entirely on the new language itself, 
+                rather than simply mapping it to a known language. 
+                Additionally, we all know that there is no exact one-to-one correspondence between languages. 
+            </p> 
+            
+            <p> 
+                For example, the Chinese word "缘故" is difficult to translate with a single English word. 
+                Translating it as "cause" or "reason" might not fully capture the nuance of "缘故," 
+                which often implies a more subtle or indirect reason behind an event or situation. 
+                Such subtle differences that cannot be precisely described with a single English word sometimes lead to the creation of new terms or explanations to better convey the intended meaning.
+            </p> 
+            
+            <h3> Understanding Models in Terms of Models </h3> 
+            
+            <p> 
+                Currently, interpretable models can be divided into three categories <a href="#montavon_2018">[1]</a>. 
+                The first category involves designing model structures based on known knowledge structures, 
+                which can be directly explained through the model parameters. 
+                The second category involves methods based on gradients or contributions, 
+                where various mechanisms are designed to measure the contributions of inputs and network components to the output. 
+                The third category involves perturbation-based methods, 
+                where contributions of various parts are determined by changing inputs and observing changes in outputs. 
+            </p> 
+            
+            <p> 
+                Firstly, when dealing with complex tasks, especially those with incomplete knowledge, 
+                the first method, although providing interpretability, inevitably sacrifices accuracy. 
+                This is clearly not a good approach for moving towards explainable general artificial intelligence. 
+            </p> 
+            
+            <p> 
+                Additionally, perturbation-based methods attempt to explain deep learning models using human understanding. 
+                For example, suppose you have a model for classifying cats and dogs. 
+                If you use a masking method to obscure the ear region in the image and observe changes in the model's predictions, 
+                if the predictions change significantly, 
+                you might infer that the ears are highly important for the model to identify cats or dogs. 
+                However, in reality, the model may rely more on overall visual context, such as the body shape and color features of the cat, 
+                and simply masking the ears might give incomplete or misleading explanations. 
+                Of course, the actual situation may be more complex, 
+                as there may be high-dimensional features in the data that we cannot understand. 
+                Therefore, while perturbation-based methods are intuitive, 
+                they may not fully capture the comprehensive internal mechanisms of deep learning models when processing complex data. 
+            </p> 
+            <p> 
+                Although current gradient- or contribution-based methods consider only the independent effects of input or hidden layer neurons on the output, 
+                while ignoring interactions between different neurons, 
+                and these methods are less robust compared to perturbation-based explanations <a href="#montavon_2018">[2]</a>, 
+                they seem to be closer to revealing the internal workings of the model.
+            </p> 
+            
+            <h3> Final Thoughts </h3> 
+            
+            <p> 
+                Although I believe that gradient-based or contribution-based explanation methods are the 'ultimate way' to open the black box of machine learning, 
+                explaining models through human knowledge remains a pathway to building human trust in deep learning, 
+                analyzing data, and even discovering more scientific rules based on human understanding. 
+                The significance of these methods may extend beyond just explaining the models themselves.
+            </p> 
+            
+            <h2> References </h2> 
+            <ol class="custom-counter">
+                <li id="montavon_2018"> Montavon, G., Samek, W. and Müller, K.R., 2018. Methods for interpreting and understanding deep neural networks. Digital signal processing, 73, pp.1-15. <a href="https://www.sciencedirect.com/science/article/pii/S1051200417302385"> [link] </a> </li>
+                <li id="ghorbani_2019"> Ghorbani, A., Abid, A. and Zou, J., 2019, July. Interpretation of neural networks is fragile. In Proceedings of the AAAI conference on artificial intelligence (Vol. 33, No. 01, pp. 3681-3688). <a href="https://ojs.aaai.org/index.php/AAAI/article/view/4252"> [link] </a> </li>
+            </ol>
+
+        </div>
+
+        <!-- Chinese content (hidden by default) -->
+        <div id="chinese-content" style="display:none;">
+            <!-- Button to toggle language -->
+            <div class="language-toggle">
+                <span id="english-btn" class="inactive" onclick="showEnglish()">English</span>
+                <span class="separator">|</span>
+                <span id="chinese-btn" class="active" onclick="showChinese()">Chinese</span>
+            </div>
+
+            <h2> 可解釋模型：當我們在談論可解釋模型時我們在談論什麽？ </h2>
+
+            <p>
+                作為一個從事深度學習研究的人，一開始我對於解釋模型並沒有那麼熱衷。
+                深度學習模型往往非常「深」，即便它達成了我們期望的目標，例如分類一些圖片或預測某些性質，也不一定是按照我們所期望的邏輯運行。
+                因此，我總覺得，人類試圖以自己的方式來理解深度學習模型，是非常傲慢的。
+            </p>
+
+            <h3> 爲什麽（不）從人類的視角解釋機器學習模型？</h3>
+
+            <p>
+                但是，話又說回來，依據自己的經歷與經驗去理解新事物，是非常常見的選擇。就像學習一門新語言時，人們通常傾向於通過翻譯來建立新語言與舊語言的對應關係。
+            </p>
+
+            <p>
+                但常見的選擇就是正確的嗎？我時常想起《Words Power Made Easy》這本書中的建議：像剛學會說話的孩子一樣學習新詞。
+                這樣學習時，我們對每個詞的理解完全基於新語言本身，而不是簡單地與已知語言做對應。此外，我們都知道，語言之間無法精確一一對應。
+            </p>
+
+            <p> 
+                例如，「handle」這個詞很難用單一詞語翻譯。
+                如果翻譯為「處理」，似乎與「process」無法區分，雖然「process」更適用於有系統的步驟和程序的處理。
+                這種無法用單詞描述的微小差異，有時甚至會導致新詞的產生，比如「抓手」這個說法的產生。
+            </p>
+
+            <h3> 以模型的方式理解模型 </h3>
+
+            <p> 
+                目前的可解釋模型可以分為三類 <a href="#montavon_2018">[1]</a>。
+                第一類是根據已知的知識結構來設計模型結構，這類模型可以直接通過模型參數解釋。
+                第二類是基於梯度（gradient）或貢獻（contribute）的方法，各種機制被設計出來衡量輸入及網絡各部分對輸出的貢獻。
+                第三類則是基於擾動（perturbation）的方法，通過改變輸入並觀察輸出的變化來確定各部分的貢獻。
+            </p>
+
+            <p>
+                首先，當面對複雜任務，尤其是知識不夠完備的任務時，第一種方法雖然可以獲得可解釋性，但必然會犧牲精度。這顯然不是我們邁向可解釋的通用型人工智能的好方法。
+            </p>
+
+            <p>
+                此外，基於擾動的方法試圖用人類的理解來解釋深度學習模型。
+                舉個例子，假設你有一個貓和狗的分類模型。
+                若使用遮蔽（masking）方法將圖像中的耳朵區域遮蔽，並觀察模型的預測變化，若預測顯著變化，
+                可能會推斷耳朵對模型識別貓或狗的重要性很高。
+                但實際上，模型可能更依賴於整體視覺上下文，如貓的身體形狀和顏色特徵，僅遮蔽耳朵可能會給出不完整或誤導性的解釋。
+                當然，實際情況可能更加複雜，因爲數據中可能存在更多我們無法理解的高維度特徵。
+                因此，基於擾動的方法雖然直觀，但可能無法完全捕捉深度學習模型處理複雜數據時的全面內部機制。
+            </p>
+
+            <p>
+                雖然目前基於梯度或貢獻的方法僅考慮輸入或隱藏層神經元對輸出的獨立影響，
+                並忽略了不同神經元之間的交互作用，
+                而這些方法相比基於擾動的解釋在魯棒性上也較差 <a href="#montavon_2018">[2]</a>，
+                但它們似乎更接近於揭示模型內部運作的方向。
+            </p>
+
+            <h3> 寫在最後 </h3>
+            
+            <p>
+                儘管我認為基於梯度或基於貢獻的解釋方法是我們打開機器學習黑盒的「最終方式」，
+                但按照人類的知識來解釋模型仍然是讓人類信任深度學習，分析數據， 
+                甚至按照人類知識來發掘更多科學規則的途徑，
+                這些方法的意義可能不僅僅在於解釋模型本身。
+            </p>
+
+            <h2> 參考文獻 </h2>
+            <ol class="custom-counter">
+                <li id="montavon_2018"> Montavon, G., Samek, W. and Müller, K.R., 2018. Methods for interpreting and understanding deep neural networks. Digital signal processing, 73, pp.1-15. <a href="https://www.sciencedirect.com/science/article/pii/S1051200417302385"> [link] </a> </li>
+                <li id="ghorbani_2019"> Ghorbani, A., Abid, A. and Zou, J., 2019, July. Interpretation of neural networks is fragile. In Proceedings of the AAAI conference on artificial intelligence (Vol. 33, No. 01, pp. 3681-3688). <a href="https://ojs.aaai.org/index.php/AAAI/article/view/4252"> [link] </a> </li>
+            </ol>
+        </div>
+        
+
+
+        <footer>
+            <p>&copy; 2024 Yuhui Hong. All rights reserved.</p>
+        </footer>
+    </section>
+    
+</body>
+
+</html>
