@@ -39,3 +39,17 @@ ol.custom-counter li {
 ol.custom-counter li::before {
     content: "[" counter(list-counter) "] "; /* Display counter with brackets */
 }
+
+/* CSS for limiting image size in the blog */
+img {
+    max-width: 100%; /* Ensures images do not exceed the width of their container */
+    height: auto;    /* Maintains aspect ratio */
+    display: block;  /* Ensures that images do not have extra space below them */
+    margin: 0 auto;  /* Centers the image in its container */
+}
+figcaption {
+    color: gray; /* Set text color to gray */
+    font-style: italic; /* Optional: Make the text italic */
+    font-size: 0.9em; /* Optional: Adjust font size */
+    margin-top: 0.5em; /* Optional: Add space above the caption */
+}
