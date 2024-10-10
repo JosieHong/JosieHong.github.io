@@ -1,25 +1,15 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0; /* Optional: Add a background color */
+    box-sizing: border-box;
 }
 
-iframe {
+html, body {
+    height: 100%;
+}
+
+.pdf {
     width: 100%;
     height: 100%;
-    max-width: 100vw; /* Set max-width to 100% of viewport width */
-    max-height: 100vh; /* Maximum height to fit well on screens */
-    border: none; /* Optional: Remove border */
-    overflow: auto; /* Allow scrolling */
-}
-
-/* Media query for smaller screens */
-@media (max-width: 600px) {
-    iframe {
-        max-height: 100vh; /* Adjust height if necessary */
-    }
+    border: none;
 }
