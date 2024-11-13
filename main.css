@@ -6,16 +6,16 @@ html {
 
 a {
     text-decoration: none;
-    color: #5365ac;
+    color: #b22222;
 }
 
 highlight {
-    color: #5365ac;
+    color: #b22222;
 }
 
 a:hover {
     color: white;
-    background-color: #5365ac;
+    background-color: #b22222;
 }
 
 #content {
