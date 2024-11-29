@@ -118,7 +118,7 @@ footer {
   
 table {
 width: 100%; /* Use 100% width of its container */
-max-width: 600px; /* Limit the maximum width */
+max-width: 800px; /* Limit the maximum width */
 border-collapse: collapse;
 margin: 10px 0;
 }
