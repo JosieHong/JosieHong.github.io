@@ -76,7 +76,7 @@
         <p>
             Meta-learning, often referred to as <highlight>"learning to learn,"</highlight> 
             is an approach that not only learns the model parameters \(f_\theta\)
-            but also the training algorithm \(F_\phi\) as show in the following figure. 
+            but also the training algorithm \(F_\phi\) as shown in the following figure. 
         </p>
         <figure>
             <img src="./20240930/meta_learning.png" alt="Meta-Learning Concept" />
@@ -120,8 +120,8 @@
         and \(l^n(\hat{\theta}^n)\) is the loss on the test set of task \(n\).
         </p>
         <p> 
-        The model's weights \(\hat{\theta}^n\) can be learned through gradient descent as tranditional machine learning do. 
-        We always contrain it as a one-step gradient update:
+        The model's weights \(\hat{\theta}^n\) can be learned through gradient descent as traditional machine learning does. 
+        We always constrain it as a one-step gradient update:
             \[
             \hat{\theta}^n = \phi - \alpha {\nabla}_{\phi}l^n(\phi)
             \]
