@@ -25,7 +25,7 @@ a:hover {
     padding: 24px; /* Reduce padding for smaller screens */
     box-sizing: border-box; /* Include padding in width calculation */
     margin: 0 auto; /* Center align horizontally */
-    text-align: justify; /* Left align text content */
+    text-align: justify; /* Left and right align text content */
     line-height: 1.6; /* Adjust line height */
 }
 
@@ -208,4 +208,21 @@ h3, h4 {
     font-size: 11pt;
     font-style: italic;
     color: #333;
+}
+
+/* Responsive adjustments for narrow screens */
+@media (max-width: 900px) {
+    .paper-card {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center-align content */
+    }
+
+    .toc {
+        margin-right: 0;
+        margin-bottom: 10px; /* Add spacing between image and content */
+    }
+
+    .content {
+        text-align: justify; /* Center-align text if desired */
+    }
 }
