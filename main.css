@@ -25,7 +25,7 @@ a:hover {
     padding: 24px; /* Reduce padding for smaller screens */
     box-sizing: border-box; /* Include padding in width calculation */
     margin: 0 auto; /* Center align horizontally */
-    text-align: left; /* Left align text content */
+    text-align: justify; /* Left align text content */
     line-height: 1.6; /* Adjust line height */
 }
 
@@ -173,6 +173,39 @@ td::before {
 }
 
 h3, h4 {
-    margin-top: 12px; /* Adjust the top margin */
+    margin-top: 6pt; /* Adjust the top margin */
     margin-bottom: 0px; /* Adjust the bottom margin */
+}
+
+/* Publication cards */
+.paper-card {
+    display: flex;
+    align-items: flex-start;
+    background: #fff; 
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.toc {
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+.toc img {
+    width: 180px;
+    height: 120px;
+    object-fit: contain;
+    background-color: white;
+    padding: 5px; /* Optional, for additional inner padding */
+    display: block; /* Ensures no inline spacing issues */
+}
+.content {
+    flex-grow: 1;
+}
+.title {
+    font-size: 12pt;
+    margin-bottom: 2pt;
+}
+.tldr {
+    font-size: 11pt;
+    font-style: italic;
+    color: #333;
 }
