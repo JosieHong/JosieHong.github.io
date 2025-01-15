@@ -21,7 +21,7 @@ a:hover {
 #content {
     position: relative; /* Change to relative for responsive positioning */
     width: 100%; /* Ensure it spans the full width of its container */
-    max-width: 900px; /* Limit maximum width for larger screens */
+    max-width: 768px; /* Limit maximum width for larger screens */
     padding: 24px; /* Reduce padding for smaller screens */
     box-sizing: border-box; /* Include padding in width calculation */
     margin: 0 auto; /* Center align horizontally */
@@ -30,7 +30,7 @@ a:hover {
 }
 
 /* Media query for smaller screens (e.g., phones) */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     #content {
         padding: 16px; /* Further reduce padding for smaller screens */
         max-width: 100%; /* Ensure content spans full width */
@@ -85,7 +85,7 @@ footer {
     padding: 0;
     margin: 0 auto 24px auto; /* Center the navbar and add spacing below */
     background-color: white;
-    max-width: 900px; /* Match the max-width of the content */
+    max-width: 768px; /* Match the max-width of the content */
     width: 100%;
     box-sizing: border-box;
     text-align: left; /* Ensure text alignment matches the content */
@@ -211,7 +211,7 @@ h3, h4 {
 }
 
 /* Responsive adjustments for narrow screens */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .paper-card {
         flex-direction: column; /* Stack content vertically */
         align-items: center; /* Center-align content */
