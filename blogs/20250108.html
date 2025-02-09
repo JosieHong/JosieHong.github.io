@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Define title -->
+    <title> [Study Notes] MAML++, ANIL, and Reptile</title>
+
+    <!-- Include favicon. Use, e.g., https://favicon.io/ -->
+    <link rel="icon" type="image/png" href="../favicon.png" sizes="32x32" />
+
+    <!-- Include style sheets -->
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="../blog.css" />
+
+    <!-- Fonts from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- Load FontAwesome (for icons) -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" />
+
+    <!-- Load Academicons (for more icons) -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css"
+        integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg=="
+        crossorigin="anonymous" />
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+      <ul class="navbar">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../cv.html">CV</a></li>
+          <li><a href="../blogs.html">Blogs</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <section id="content"> 
+        <h2> [Study Notes] MAML++, ANIL, and Reptile</h2> 
+        <i> January 08, 2025 </i>
+
+        <p>
+            This is the continued summary of meta-learning methods for initialization 
+            including MAML++<a href="#maml_pp">[1]</a>, ANIL<a href="#anil">[2]</a>, and Reptile<a href="#reptile">[3]</a>. 
+        </p>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Algorithm</th>
+                    <th>Problems Addressed</th>
+                    <th>Improvements</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>MAML++</td>
+                    <td>
+                        • Gradient instability <br>
+                        • Fixed learning rate limitations <br>
+                        • Costly second-order derivatives <br>
+                        • Optimization instability during training
+                    </td>
+                    <td>
+                        • Per-layer and per-step learning rates <br>
+                        • Gradient preprocessing <br>
+                        • Multi-step loss optimization <br>
+                        • Derivative-order annealing 
+                    </td>
+                </tr>
+                <tr>
+                    <td>ANIL</td>
+                    <td>
+                        • Computational overhead <br>
+                        • Unnecessary parameter updates <br>
+                        • Complex adaptation process 
+                    </td>
+                    <td>
+                        • Restricts inner loop updates to final layer <br>
+                        • Maintains feature extractor in outer loop only <br>
+                        • Simplified adaptation mechanism <br>
+                        • Reduced computational complexity 
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reptile</td>
+                    <td>
+                        • Second-order derivative complexity <br>
+                        • High computational costs <br>
+                        • Implementation complexity 
+                    </td>
+                    <td>
+                        • First-order approximation <br>
+                        • Simple SGD-based update rule <br>
+                        • Direct parameter space optimization <br>
+                        • Batch-based training approach
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        The main differences between these approaches lie in their computational complexity and underlying assumptions:
+        
+        <ul>
+            <li> MAML++ is the most sophisticated but computationally intensive </li>
+            <li> ANIL provides similar performance to MAML with much less computation </li>
+            <li> Reptile is the simplest and most computationally efficient, though potentially less powerful </li>
+        </ul>
+
+        <h2>References</h2>
+        <ol class="custom-counter">
+            <li id="maml_pp">Antoniou, A., et al. (2019). How to train your MAML. ICLR.</li>
+            <li id="anil">Raghu, A., et al. (2019). Rapid learning or feature reuse? Towards understanding the effectiveness of MAML. ICLR.</li>
+            <li id="reptile">Nichol, A. (2018). On first-order meta-learning algorithms. arXiv preprint arXiv:1803.02999.</li>
+        </ol>
+        
+        <footer>
+            <p>&copy; 2024 Yuhui Hong. All rights reserved.</p>
+        </footer>
+    </section>
+    
+</body>
+
+</html>
