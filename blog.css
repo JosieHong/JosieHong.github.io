@@ -53,3 +53,43 @@ figcaption {
     font-size: 0.9em; /* Optional: Adjust font size */
     margin-top: 0.5em; /* Optional: Add space above the caption */
 }
+
+/* CSS for code blocks */
+code {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.7em;
+}
+pre {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 0px 15px;
+    overflow-x: auto;
+}
+pre code {
+    border: none;
+    padding: 0;
+}
+
+/* GitHub Gist specific styling */
+.gist-file .blob-num {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+/* Apply your box styling to the entire gist */
+.gist-file {
+    border: 1px solid #ddd !important;
+    border-radius: 3px !important;
+}
+
+.gist-data {
+    background-color: transparent !important;
+    border-bottom: none !important;
+}
+
+/* Add margin to the gist container */
+.gist {
+    margin-top: 15px !important; /* Increase this value to add more space */
+}

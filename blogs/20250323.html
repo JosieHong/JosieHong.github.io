@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Define title -->
+    <title> [Study Notes] From 1D to 3D: Calculating Glycan Structures with the GAFF Force Field from IUPAC Name</title>
+
+    <!-- Include favicon. Use, e.g., https://favicon.io/ -->
+    <link rel="icon" type="image/png" href="../favicon.png" sizes="32x32" />
+
+    <!-- Include style sheets -->
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="../blog.css" />
+
+    <!-- Fonts from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- Load FontAwesome (for icons) -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" />
+
+    <!-- Load Academicons (for more icons) -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css"
+        integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg=="
+        crossorigin="anonymous" />
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+      <ul class="navbar">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./files/CV_Yuhui.pdf" target="_blank">CV</a></li>
+          <li><a href="../blogs.html">Blogs</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <section id="content"> 
+        <h2> [Study Notes] From 1D to 3D: Calculating Glycan Structures with the GAFF Force Field from IUPAC Name</h2> 
+        <i> March 23, 2025 </i>
+
+        <p>This study note documents the process of installing <a href="https://openbabel.org/index.html" target="_blank">Open Babel</a> and <a href="https://github.com/kalininalab/GlyLES" target="_blank">GlyLES</a>, and then converting glycan IUPAC names into 3D structures using the General Amber Force Field (GAFF) and Open Babel.</p>
+
+        <h3>1. Installing OpenBabel Without sudo Access</h3>
+    
+        <p>Here's a complete guide to installing OpenBabel from source without requiring sudo or administrative privileges. Before installing, make sure your system meets all <a href="https://openbabel.org/docs/Installation/install.html" target="_blank">requirements listed in the official documentation</a>.</p>
+        
+        <h4>Step 1: Download and Extract OpenBabel</h4>
+        
+        <pre><code># Download OpenBabel (adjust version as needed)
+wget https://github.com/openbabel/openbabel/releases/download/openbabel-3-1-1/openbabel-3.1.1-source.tar.bz2
+
+# Extract the archive
+tar xvjf openbabel-3.1.1-source.tar.bz2</code></pre>
+    
+        <h4>Step 2: Configure the Build</h4>
+        
+        <pre><code class="language-bash"># Create a build directory
+mkdir build
+
+# Enter the build directory
+cd build
+
+# Configure with CMake, specifying a custom install prefix
+cmake ../openbabel-openbabel-3-1-1 -DCMAKE_INSTALL_PREFIX=$HOME/openbabel</code></pre>
+    
+        <p>For users with administrative privileges, OpenBabel can be installed system-wide by simply omitting the <code>-DCMAKE_INSTALL_PREFIX</code> flag during configuration.</p>
+        
+        <h4>Step 3: Compile OpenBabel</h4>
+        
+        <pre><code># Compile (use -j&lt;N&gt; for parallel build with N cores)
+make -j4</code></pre>
+        
+        <h4>Step 4: Set Environment Variables</h4>
+        
+        <p>The compiled binaries can be used directly from the build directory without installation. You'll need to set up your environment to find the executables and plugins:</p>
+        
+        <pre><code># Edit your ~/.profile or ~/.bashrc
+vi ~/.profile</code></pre>
+    
+        <p>Add these lines:</p>
+        
+        <pre><code># Add OpenBabel to PATH
+export PATH=$PATH:/path/to/OpenBabel/build/bin
+
+# Set OpenBabel environment variables
+export PATH=$PATH:/path/to/OpenBabel/build/bin
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/path/to/OpenBabel/build/lib
+export BABEL_LIBDIR=/path/to/OpenBabel/openbabel-3-1-1/data</code></pre>
+    
+        <p>Replace <code>/path/to/OpenBabel</code> with your actual path.</p>
+        
+        <h4>Step 5: Apply the Environment Changes</h4>
+        
+        <pre><code>source ~/.profile</code></pre>
+        
+        <h4>Step 6: Test OpenBabel</h4>
+        
+        <pre><code># Check the version
+obabel -V
+
+# List supported formats
+obabel -L formats</code></pre>
+    
+        <h3>2. Converting IUPAC Names to 3D Structures</h3>
+        
+        <p>Besides Open Babel, we also need GlyLES to convert IUPAC names into SMILES strings.</p>
+  
+        <p>GlyLES can be easily installed with <code>pip install glyles</code>. For more details, see the implementation repository: <a href="https://github.com/kalininalab/GlyLES" target="_blank">https://github.com/kalininalab/GlyLES</a>.</p>
+  
+        <p>Then we can start coding! Here's a simple example to convert an IUPAC name to a 3D structure:</p>
+
+        <script src="https://gist.github.com/JosieHong/813a9e5bbbe3d08bb110a4f21b143886.js"></script>
+        
+        <footer>
+            <p>&copy; 2024 Yuhui Hong. All rights reserved.</p>
+        </footer>
+    </section>
+    
+</body>
+
+</html>
