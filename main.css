@@ -6,16 +6,16 @@ html {
 
 a {
     text-decoration: none;
-    color: #b22222;
+    color: #990000;
 }
 
 highlight {
-    color: #b22222;
+    color: #990000;
 }
 
 a:hover {
     color: white;
-    background-color: #b22222;
+    background-color: #990000;
 }
 
 #content {
@@ -63,7 +63,7 @@ a:hover {
 }
 
 .icons a:hover {
-    color: #b22222;
+    color: #990000;
 }
 
 .sublist {
@@ -105,7 +105,7 @@ footer {
 
 .navbar a:hover {
     color: white;
-    background-color: #b22222;
+    background-color: #990000;
 }
 
 
@@ -190,15 +190,16 @@ h3, h4 {
     margin-right: 15px;
 }
 .toc img {
-    width: 240px;
-    height: 180px;
+    width: 300px;
+    height: 200px;
     object-fit: contain;
     background-color: white;
-    padding: 5px; /* Optional, for additional inner padding */
+    padding: 0px; /* Remove padding */
     display: block; /* Ensures no inline spacing issues */
 }
 .content {
     flex-grow: 1;
+    padding: 5px;
 }
 .title {
     font-size: 12pt;
