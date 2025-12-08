@@ -6,33 +6,33 @@ html {
 
 a {
     text-decoration: none;
-    color: #990000;
+    color: #4B2E83;
 }
 
 highlight {
-    color: #990000;
+    color: #4B2E83;
 }
 
 a:hover {
     color: white;
-    background-color: #990000;
+    background-color: #4B2E83;
 }
 
 #content {
     position: relative; /* Change to relative for responsive positioning */
     width: 100%; /* Ensure it spans the full width of its container */
     max-width: 900px; /* Limit maximum width for larger screens */
-    padding: 24px; /* Reduce padding for smaller screens */
+    padding: 12px; /* Reduce padding for smaller screens */
     box-sizing: border-box; /* Include padding in width calculation */
     margin: 0 auto; /* Center align horizontally */
     text-align: justify; /* Left and right align text content */
-    line-height: 1.6; /* Adjust line height */
+    line-height: 1.5; /* Adjust line height */
 }
 
 /* Media query for smaller screens (e.g., phones) */
 @media (max-width: 900px) {
     #content {
-        padding: 16px; /* Further reduce padding for smaller screens */
+        padding: 12px; /* Further reduce padding for smaller screens */
         max-width: 100%; /* Ensure content spans full width */
     }
 }
@@ -63,7 +63,7 @@ a:hover {
 }
 
 .icons a:hover {
-    color: #990000;
+    color: #4B2E83;
 }
 
 .sublist {
@@ -105,7 +105,15 @@ footer {
 
 .navbar a:hover {
     color: white;
-    background-color: #990000;
+    background-color: #4B2E83;
+}
+
+/* active navbar item */
+.navbar a.active {
+    font-weight: 700;
+    text-decoration: underline;
+    background-color: #4B2E83;
+    color: white;
 }
 
 
