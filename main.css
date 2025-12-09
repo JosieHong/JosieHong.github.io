@@ -89,6 +89,7 @@ footer {
     width: 100%;
     box-sizing: border-box;
     text-align: left; /* Ensure text alignment matches the content */
+    flex-wrap: wrap; /* Allow items to wrap */
 }
 
 .navbar li {
