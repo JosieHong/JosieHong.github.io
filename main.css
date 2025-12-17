@@ -1,21 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 html {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 13pt;
-    font-weight: 400;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 500;
 }
 
 a {
     text-decoration: none;
-    color: #4B2E83;
+    color: #3560a5;
+}
+a:hover {
+    color: white;
+    background-color: #6490d7;
+}
+
+p.lightweight {
+    font-weight: 100;
 }
 
 highlight {
-    color: #4B2E83;
-}
-
-a:hover {
-    color: white;
-    background-color: #4B2E83;
+    color: #3560a5;
 }
 
 #content {
@@ -26,7 +38,7 @@ a:hover {
     box-sizing: border-box; /* Include padding in width calculation */
     margin: 0 auto; /* Center align horizontally */
     text-align: justify; /* Left and right align text content */
-    line-height: 1.5; /* Adjust line height */
+    line-height: 1.6; /* Adjust line height */
 }
 
 /* Media query for smaller screens (e.g., phones) */
@@ -38,7 +50,7 @@ a:hover {
 }
 
 .avatar {
-    border-radius: 50%;
+    /* border-radius: 50%; */
     width: 150px;
 }
 
@@ -63,7 +75,7 @@ a:hover {
 }
 
 .icons a:hover {
-    color: #4B2E83;
+    color: #6490d7;
 }
 
 .sublist {
@@ -75,21 +87,20 @@ footer {
     margin-top: 3em;
 }
 
-
-
 /* navbar */
 .navbar {
     display: flex;
     justify-content: left; 
     list-style-type: none;
     padding: 0;
-    margin: 0 auto 24px auto; /* Center the navbar and add spacing below */
+    margin: 0 auto 12px auto; /* Center the navbar and add spacing below */
     background-color: white;
     max-width: 900px; /* Match the max-width of the content */
     width: 100%;
     box-sizing: border-box;
-    text-align: left; /* Ensure text alignment matches the content */
+    text-align: center; /* Ensure text alignment matches the content */
     flex-wrap: wrap; /* Allow items to wrap */
+    font-weight: 500;
 }
 
 .navbar li {
@@ -99,21 +110,21 @@ footer {
 .navbar a {
     color: black;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     display: block;
     text-align: left;
 }
 
 .navbar a:hover {
     color: white;
-    background-color: #4B2E83;
+    background-color: #6490d7;
 }
 
 /* active navbar item */
 .navbar a.active {
     font-weight: 700;
     text-decoration: underline;
-    background-color: #4B2E83;
+    background-color: #6490d7;
     color: white;
 }
 
