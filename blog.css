@@ -4,7 +4,7 @@
     padding: 8px 12px;
     font-size: 12px;
     cursor: pointer;
-    background-color: #f9f9f9;
+    background-color: white;
     margin-bottom: 12px;
 }
 
@@ -18,7 +18,7 @@
 
 .language-toggle .active {
     font-weight: bold;
-    color: #990000;
+    color: #6490d7;
 }
 
 .language-toggle .inactive {
