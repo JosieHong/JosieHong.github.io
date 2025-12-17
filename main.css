@@ -5,7 +5,7 @@ body {
 
 html {
     font-family: 'Inter', sans-serif;
-    font-size: 12pt;
+    font-size: 13pt;
     font-weight: 300;
 }
 
@@ -43,6 +43,9 @@ highlight {
 
 /* Media query for smaller screens (e.g., phones) */
 @media (max-width: 900px) {
+    html {
+        font-size: 11pt; /* Adjust font size for readability */
+    }
     #content {
         padding: 12px; /* Further reduce padding for smaller screens */
         max-width: 100%; /* Ensure content spans full width */
