@@ -13,18 +13,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav>
-    <ul class="navbar">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="talks.html">Talks</a></li>
-        <li><a href="professional_service.html">Professional Service</a></li>
-        <li><a href="teaching.html">Teaching</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="./files/CV_Yuhui.pdf" target="_blank">CV</a></li>
-    </ul>
-  </nav>
+    <!-- Navigation Bar -->
+    <nav>
+      <button class="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+      <ul class="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="talks.html">Talks</a></li>
+          <li><a href="professional_service.html">Professional Service</a></li>
+          <li><a href="teaching.html" class="active">Teaching</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="./files/CV_Yuhui.pdf" target="_blank">CV</a></li>
+      </ul>
+    </nav>
 
     <section id="content">
         <h2>Teaching</h2>
@@ -74,5 +79,6 @@
           <p>&copy; 2025 Yuhui Hong. All rights reserved.</p>
         </footer>
     </section>
+    <script src="menu.js"></script>
 </body>
 </html>
