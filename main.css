@@ -5,7 +5,7 @@ body {
 
 html {
     font-family: 'Inter', sans-serif;
-    font-size: 13pt;
+    font-size: 11pt;
     font-weight: 300;
 }
 
@@ -53,7 +53,7 @@ highlight {
 }
 
 .avatar {
-    width: 150px;
+    width: 128px;
 }
 
 .icons {
@@ -312,11 +312,11 @@ h3, h4 {
     padding: 5px;
 }
 .title {
-    font-size: 12pt;
+    font-size: 11pt;
     margin-bottom: 2pt;
 }
 .tldr {
-    font-size: 11pt;
+    font-size: 10pt;
     font-style: italic;
     color: #333;
 }
